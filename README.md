@@ -52,7 +52,15 @@ The collected ground data can be compared with satellite-derived measurements to
 
 Such comparisons help improve the reliability of remote sensing data.
 
+## Future Improvments 
 
+1. Collectiing Temperature and Humidity of environment along with Solar Irradiance and Wind Speed for more accurate satellite results
+2. Using improved machine learing models for more accurate predictions
+
+## Author
+
+** Shashank Narayan Dhage **
+** Mechanical Dept. **
 
 
 
