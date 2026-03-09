@@ -1,28 +1,21 @@
-const int windPin = A1;
-const float Vref = 5.0;
-const float maxWind = 30.0;   // m/s
+import serial
+import time
+from datetime import datetime
 
-const int pyrPin = A2;      
-const float maxIrr = 2000.0; 
+ser = serial.Serial('/dev/ttyACM0',9600)
 
-void setup() {
-  Serial.begin(9600);
-}
+file = open("weather_data3.csv","a")
 
-void loop() {
-  float voltage_anemo = analogRead(windPin) * (Vref / 1023.0);
-  float windSpeed = (voltage_anemo / Vref) * maxWind;
+while True:
 
-  int adc = analogRead(pyrPin);
-  float voltage_pyrano = adc * (Vref / 1023.0);
-  float irradiance = (voltage_pyrano / Vref) * maxIrr;
+    line = ser.readline().decode().strip()
+    wind,irr = line.split(",")
 
-  Serial.print("Wind (m/s): ");
-  Serial.println(windSpeed, 2);
+    timestamp = datetime.now()
 
-  Serial.print(" | Irradiance (W/m^2): ");
-  Serial.println(irradiance, 1);
+    log = f"{timestamp},{wind},{irr}"
+    
+    print(log)
 
-
-  delay(500);
-}
+    file.write(log + "\n")
+    file.flush()
