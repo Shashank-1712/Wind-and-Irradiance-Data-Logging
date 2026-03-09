@@ -59,8 +59,8 @@ Such comparisons help improve the reliability of remote sensing data.
 
 ## Author
 
-** Shashank Narayan Dhage **
-** Mechanical Dept. **
+**Shashank Narayan Dhage**
+**Mechanical Dept.**
 
 
 
